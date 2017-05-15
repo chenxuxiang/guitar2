@@ -33,7 +33,14 @@ public class GuitarSpecServiceimplTest {
 		GuitarDaoimpl GuitarDaoimpl=new GuitarDaoimpl();
 		GuitarServiceimpl.setGuitarDao(GuitarDaoimpl);
 		GuitarServiceimpl.Search(searchGuitar);		
-		System.out.println(GuitarServiceimpl.Search(searchGuitar).get(0).getPrice());
+		System.out.println("serialNumber: "+GuitarServiceimpl.Search(searchGuitar).get(0).getSerialNumber());
+		System.out.println("price: "+GuitarServiceimpl.Search(searchGuitar).get(0).getPrice());
+		System.out.println("builder: "+GuitarServiceimpl.Search(searchGuitar).get(0).getSpec().getBuilder());
+		System.out.println("model: "+GuitarServiceimpl.Search(searchGuitar).get(0).getSpec().getModel());
+		System.out.println("numStrings: "+GuitarServiceimpl.Search(searchGuitar).get(0).getSpec().getNumStrings());
+		System.out.println("type: "+GuitarServiceimpl.Search(searchGuitar).get(0).getSpec().getType());
+		System.out.println("backWood: "+GuitarServiceimpl.Search(searchGuitar).get(0).getSpec().getBackWood());
+		System.out.println("topWood: "+GuitarServiceimpl.Search(searchGuitar).get(0).getSpec().getTopWood());
 
 	}
 	

@@ -1,16 +1,13 @@
 package guitar.action;
 
-import com.google.gson.Gson;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import guitar.dao.GuitarDao;
-import guitar.dao.impl.GuitarDaoimpl;
 import guitar.domain.Guitar;
 import guitar.domain.GuitarSpec;
 import guitar.service.GuitarService;
 import guitar.service.impl.GuitarServiceimpl;
 
-public class GuitarAction extends ActionSupport {
+public class Inventory extends ActionSupport {
 	private String serialNumber, builder, model, type, backWood, topWood;
 	private double price;
 	private int numStrings;
@@ -90,11 +87,7 @@ public class GuitarAction extends ActionSupport {
 				new GuitarSpec(builder, model, type, numStrings, backWood, topWood));
 		GuitarService GuitarService = new GuitarServiceimpl();
 		GuitarService.Search(searchGuitar);
-		Gson gson = new Gson();  
-		String str = gson.toJson(GuitarService.Search(searchGuitar));
 		ActionContext.getContext().put("guitar", GuitarService.Search(searchGuitar).get(0));
-		ActionContext.getContext().put("gson", str);
-		System.out.println(str);
 		return SUCCESS;
 	}
 
